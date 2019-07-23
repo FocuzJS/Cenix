@@ -83,17 +83,17 @@ public class Cenix extends JavaPlugin implements Listener {
 			}
 		}
 
-		this.registerCheck(new BreakCheck());
-		this.registerCheck(new PlaceCheck());
-		this.registerCheck(new KillAuraCheck());
-		this.registerCheck(new MultiAuraCheck());
+		//this.registerCheck(new BreakCheck());
+		//this.registerCheck(new PlaceCheck());
+		//this.registerCheck(new KillAuraCheck());
+		//this.registerCheck(new MultiAuraCheck());
 		this.registerCheck(new BoatCheck());
-		this.registerCheck(new WaterCheck());
-		this.registerCheck(new HoverCheck());
-		this.registerCheck(new RiseCheck());
-		this.registerCheck(new SpeedCheck());
-		this.registerCheck(new FloatCheck());
-		this.registerCheck(new BlinkCheck());
+		//this.registerCheck(new WaterCheck());
+		//this.registerCheck(new HoverCheck());
+		//this.registerCheck(new RiseCheck());
+		//this.registerCheck(new SpeedCheck());
+		//this.registerCheck(new FloatCheck());
+		//this.registerCheck(new BlinkCheck());
 	}
 
 	private void registerCheck(Check check) {
@@ -297,15 +297,15 @@ public class Cenix extends JavaPlugin implements Listener {
 					for (String s : reports.get(p).values()) {
 						if (!offenses.contains(s)) {
 							if (tick == 0) {
-								offenses = "§f" + s;
+								offenses = "Â§f" + s;
 							} else {
-								offenses += "§7, " + Settings.VARIABLE_COLOR + s;
+								offenses += "Â§7, " + Settings.VARIABLE_COLOR + s;
 							}
 							tick++;
 						}
 					}
 					List<String> r = new ArrayList<String>();
-					r.add("§f--- Report for " + "[VC]" + p.getName() + "§f ---");
+					r.add("Â§f--- Report for " + "[VC]" + p.getName() + "Â§f ---");
 					r.add("Time [EST]: " + "[VC]" + time);
 					r.add("Offenses: " + "[VC]" + offenses);
 					r.add(" ");
@@ -318,8 +318,8 @@ public class Cenix extends JavaPlugin implements Listener {
 					r.add("Health: " + "[VC]" + UtilMath.trim(1, p.getHealth()) + " ("
 							+ UtilMath.trim(1, (p.getHealth() / 2)) + " hearts)");
 					r.add("Food Level: " + "[VC]" + p.getFoodLevel());
-					r.add("Coordinates (X,Y,Z): " + "[VC]" + p.getLocation().getBlockX() + "§f, " + "[VC]"
-							+ p.getLocation().getBlockY() + "§f, " + "[VC]" + p.getLocation().getBlockZ());
+					r.add("Coordinates (X,Y,Z): " + "[VC]" + p.getLocation().getBlockX() + "Â§f, " + "[VC]"
+							+ p.getLocation().getBlockY() + "Â§f, " + "[VC]" + p.getLocation().getBlockZ());
 					r.add("On Fire: " + "[VC]" + (p.getFireTicks() > 0 ? "Yes" : "No"));
 					r.add("Falling: " + "[VC]" + (PlayerLogger.getLogger().isFalling(p) ? "Yes" : "No"));
 					r.add("Bouncing: " + "[VC]" + (PlayerLogger.getLogger().isBouncing(p) ? "Yes" : "No"));
@@ -328,9 +328,9 @@ public class Cenix extends JavaPlugin implements Listener {
 					r.add("[INACCURATE] Ping: [VC]" + Cenix.getPing(p));
 					r.add("Potion Effects: " + "[VC]" + (p.getActivePotionEffects().size() != 0 ? "Yes" : "No"));
 					for (PotionEffect eff : p.getActivePotionEffects()) {
-						r.add("  §f- " + "[VC]" + eff.getType().getName() + " (x" + eff.getAmplifier() + ")");
+						r.add("  Â§f- " + "[VC]" + eff.getType().getName() + " (x" + eff.getAmplifier() + ")");
 					}
-					r.add("§f--- End of Report ---");
+					r.add("Â§f--- End of Report ---");
 					int id = Reports.saveReport(r);
 					rid = id;
 					if (!Settings.REPORT_SAVED_ALERT.equalsIgnoreCase("")) {
@@ -369,7 +369,7 @@ public class Cenix extends JavaPlugin implements Listener {
 				try {
 					sdf.setTimeZone(TimeZone.getTimeZone(Settings.TIMEZONE));
 				} catch (Exception e) {
-					this.console("§c'timezone' is not a valid Time Zone! Defaulting to America/New_York");
+					this.console("Â§c'timezone' is not a valid Time Zone! Defaulting to America/New_York");
 					Settings.TIMEZONE = "America/New_York";
 				}
 				pw.println("[" + sdf.format(d).toLowerCase().replaceAll(" am", "am").replaceAll(" pm", "pm") + "] "
